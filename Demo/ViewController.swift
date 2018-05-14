@@ -11,19 +11,19 @@ import UINumberPicker
 
 class ViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    // MARK: - RETURN VALUES
+    
+    // MARK: - VOID METHODS
+    
+    // MARK: - IBACTIONS
+    
+    // MARK: - LIFE CYCLE
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
-        // Do any additional setup after loading the view, typically from a nib.
-        let vc = UINumberPickerViewController()
+        let vc = UINumberPickerViewController(headerText: "Duration", messageText: "How long will this task take to complete", values: "")
         self.present(vc, animated: true)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
 }
 
