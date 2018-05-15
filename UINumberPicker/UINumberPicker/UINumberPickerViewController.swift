@@ -73,9 +73,8 @@ public class UINumberPickerViewController: UIViewController {
         self.stackView.addArrangedSubview(descriptionLabel)
         
         //scroll view picker
-        let picker = UIView()
-        picker.heightAnchor.constraint(equalToConstant: 72.0).isActive = true
-        picker.backgroundColor = .blue
+        let entries: [UINumberPickerView.EntryType] = [.Major("0"), .Minor("15"), .Minor("30"), .Minor("45"), .Major("1hr"), .Minor("1h 30m"), .Major("2hr")]
+        let picker = UINumberPickerView(focusSize: CGSize(width: 72, height: 72), entries: entries)
         self.stackView.addArrangedSubview(picker)
         
         //ok button

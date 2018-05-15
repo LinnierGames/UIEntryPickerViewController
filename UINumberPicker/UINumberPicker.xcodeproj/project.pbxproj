@@ -11,6 +11,7 @@
 		E973FEF920AA146A0040BB11 /* UINumberPickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E973FEF820AA146A0040BB11 /* UINumberPickerTests.swift */; };
 		E973FEFB20AA146A0040BB11 /* UINumberPicker.h in Headers */ = {isa = PBXBuildFile; fileRef = E973FEED20AA146A0040BB11 /* UINumberPicker.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E973FF1620AA14CC0040BB11 /* UINumberPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E973FF1520AA14CC0040BB11 /* UINumberPickerViewController.swift */; };
+		E973FF1E20AA3C250040BB11 /* UINumberPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E973FF1D20AA3C250040BB11 /* UINumberPickerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +32,7 @@
 		E973FEF820AA146A0040BB11 /* UINumberPickerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINumberPickerTests.swift; sourceTree = "<group>"; };
 		E973FEFA20AA146A0040BB11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E973FF1520AA14CC0040BB11 /* UINumberPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINumberPickerViewController.swift; sourceTree = "<group>"; };
+		E973FF1D20AA3C250040BB11 /* UINumberPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINumberPickerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 				E973FF1520AA14CC0040BB11 /* UINumberPickerViewController.swift */,
 				E973FEED20AA146A0040BB11 /* UINumberPicker.h */,
 				E973FEEE20AA146A0040BB11 /* Info.plist */,
+				E973FF1D20AA3C250040BB11 /* UINumberPickerView.swift */,
 			);
 			path = UINumberPicker;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E973FF1620AA14CC0040BB11 /* UINumberPickerViewController.swift in Sources */,
+				E973FF1E20AA3C250040BB11 /* UINumberPickerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
