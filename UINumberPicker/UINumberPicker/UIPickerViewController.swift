@@ -12,11 +12,11 @@ open class UIPickerViewController: UIViewController {
     
     //    public weak var delegate: UIEntryPickerViewControllerDelegate?
     
-    public var headerText: String
+    public var headerText: String?
     
-    public var messageText: String
+    public var messageText: String?
     
-    open var dismissButtonTitle: String = "Done"
+    open var dismissButtonTitle: String? = "Done"
     
     private lazy var stackView: UIStackView = {
         let sv = UIStackView()
@@ -39,7 +39,7 @@ open class UIPickerViewController: UIViewController {
         return container
     }()
     
-    public init(headerText: String, messageText: String = "") {
+    public init(headerText: String?, messageText: String? = "") {
         self.headerText = headerText
         self.messageText = messageText
         
@@ -77,18 +77,22 @@ open class UIPickerViewController: UIViewController {
         super.loadView()
         
         //Header label
-        let headerLabel = UILabel()
-        headerLabel.text = self.headerText
-        headerLabel.font = UIFont.boldSystemFont(ofSize: 24)
-        headerLabel.textAlignment = .center
-        self.stackView.addArrangedSubview(headerLabel)
+        if let headerText = self.headerText {
+            let headerLabel = UILabel()
+            headerLabel.text = headerText
+            headerLabel.font = UIFont.boldSystemFont(ofSize: 24)
+            headerLabel.textAlignment = .center
+            self.stackView.addArrangedSubview(headerLabel)
+        }
         
         //Description label
-        let descriptionLabel = UILabel()
-        descriptionLabel.numberOfLines = 0
-        descriptionLabel.text = self.messageText
-        descriptionLabel.textAlignment = .center
-        self.stackView.addArrangedSubview(descriptionLabel)
+        if let descriptionText = self.messageText {
+            let descriptionLabel = UILabel()
+            descriptionLabel.numberOfLines = 0
+            descriptionLabel.text = descriptionText
+            descriptionLabel.textAlignment = .center
+            self.stackView.addArrangedSubview(descriptionLabel)
+        }
         
         self.layoutConent()
             .forEach { [unowned self] (aView) in
@@ -96,11 +100,13 @@ open class UIPickerViewController: UIViewController {
             }
         
         //ok button
-        let okButton = UIButton(type: .system)
-        okButton.addTarget(self, action: #selector(pressDone(_:)), for: .touchUpInside)
-        okButton.setTitle(self.dismissButtonTitle, for: .normal)
-        okButton.titleLabel!.font = UIFont.boldSystemFont(ofSize: 20)
-        self.stackView.addArrangedSubview(okButton)
+        if let buttonTitle = self.dismissButtonTitle {
+            let okButton = UIButton(type: .system)
+            okButton.addTarget(self, action: #selector(pressDone(_:)), for: .touchUpInside)
+            okButton.setTitle(buttonTitle, for: .normal)
+            okButton.titleLabel!.font = UIFont.boldSystemFont(ofSize: 20)
+            self.stackView.addArrangedSubview(okButton)
+        }
         
         //Layout
         self.containerView.addSubview(self.stackView)

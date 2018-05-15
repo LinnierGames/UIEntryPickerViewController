@@ -28,18 +28,24 @@ class ViewController: UIViewController {
     
     // MARK: - IBACTIONS
     
-    @IBOutlet weak var button: UIButton!
-    @IBAction func pressButton(_ sender: Any) {
+    @IBAction func pressPicker(_ sender: Any) {
+        let vcDate = UIPickerViewController(headerText: "UIPicker", messageText: nil)
+        self.present(vcDate, animated: true)
+    }
+    
+    @IBOutlet weak var buttonEntryPicker: UIButton!
+    @IBAction func pressEntryPicker(_ sender: Any) {
         let vc = UIEntryPickerViewController(headerText: "Duration", messageText: "How long will this task take to complete", values: entries)
         vc.delegate = self
         vc.defaultEntryIndex = 4
         self.present(vc, animated: true)
-        return
-        
-        let vcDate = UIDateAndTimePickerViewController(headerText: "Deadline", messageText: "When is this task due", date: Date(timeIntervalSince1970: 1))
-        vcDate.delegate = self
-        self.present(vcDate
-            , animated: true)
+    }
+    
+    @IBOutlet weak var buttonDateAndTimePicker: UIButton!
+    @IBAction func pressDateAndTimePicker(_ sender: Any) {
+        let vc = UIDateAndTimePickerViewController(headerText: "Deadline", messageText: "When is this task due", date: Date(timeIntervalSince1970: 1))
+        vc.delegate = self
+        self.present(vc, animated: true)
     }
     
     // MARK: - LIFE CYCLE
@@ -47,13 +53,13 @@ class ViewController: UIViewController {
 
 extension ViewController: UIEntryPickerViewControllerDelegate {
     func entryPicker(_ entryPickerViewController: UIEntryPickerViewController, didFinishWith selectedIndex: Int) {
-        button.setTitle(entries[selectedIndex].text, for: .normal)
+        buttonEntryPicker.setTitle(entries[selectedIndex].text, for: .normal)
     }
 }
 
 extension ViewController: UIDateAndTimePickerViewControllerDelegate {
     func dateAndTimePicker(_ dateAndTimePicker: UIDateAndTimePickerViewController, didFinishWith selectedDate: Date, and isTimeIncluded: Bool) {
-        button.setTitle(String(describing: selectedDate), for: .normal)
+        buttonDateAndTimePicker.setTitle(String(describing: selectedDate), for: .normal)
     }
 }
 

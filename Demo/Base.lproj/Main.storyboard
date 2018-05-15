@@ -18,20 +18,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oOV-X7-hbV">
-                                <rect key="frame" x="16" y="318" width="343" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="pressButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vBk-88-q3Y"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="rKx-gO-3Kh">
+                                <rect key="frame" x="16" y="272.5" width="343" height="122"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oOV-X7-hbV">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
+                                        <state key="normal" title="UIPickerVc"/>
+                                        <connections>
+                                            <action selector="pressPicker:" destination="BYZ-38-t0r" eventType="touchUpInside" id="A8c-Fz-9O3"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aU1-tK-U52">
+                                        <rect key="frame" x="0.0" y="46" width="343" height="30"/>
+                                        <state key="normal" title="UIEntryPickerVc"/>
+                                        <connections>
+                                            <action selector="pressEntryPicker:" destination="BYZ-38-t0r" eventType="touchUpInside" id="M17-Os-0Rf"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y60-Lt-goy">
+                                        <rect key="frame" x="0.0" y="92" width="343" height="30"/>
+                                        <state key="normal" title="UIDateAndTimeVc"/>
+                                        <connections>
+                                            <action selector="pressDateAndTimePicker:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KNo-3T-SC2"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="rKx-gO-3Kh" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="I5W-Mo-Ggd"/>
+                            <constraint firstItem="rKx-gO-3Kh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="K1d-8p-Keg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rKx-gO-3Kh" secondAttribute="trailing" constant="16" id="j8r-g7-S75"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="button" destination="oOV-X7-hbV" id="WNO-X0-Jk0"/>
+                        <outlet property="buttonDateAndTimePicker" destination="Y60-Lt-goy" id="zvC-vm-W7e"/>
+                        <outlet property="buttonEntryPicker" destination="aU1-tK-U52" id="WnM-hh-NLj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E92AB05E20AB52CD0089FE9F /* UIOptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92AB05D20AB52CD0089FE9F /* UIOptionButton.swift */; };
 		E973FEF420AA146A0040BB11 /* UIPickers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E973FEEA20AA146A0040BB11 /* UIPickers.framework */; };
 		E973FEF920AA146A0040BB11 /* UINumberPickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E973FEF820AA146A0040BB11 /* UINumberPickerTests.swift */; };
 		E973FEFB20AA146A0040BB11 /* UINumberPicker.h in Headers */ = {isa = PBXBuildFile; fileRef = E973FEED20AA146A0040BB11 /* UINumberPicker.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -40,6 +41,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E92AB05D20AB52CD0089FE9F /* UIOptionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIOptionButton.swift; sourceTree = "<group>"; };
+		E92AB05F20AB53AC0089FE9F /* temp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = temp.xib; sourceTree = "<group>"; };
+		E92AB06020AB53BC0089FE9F /* Simulator Screen Shot - iPhone 8 Plus - 2018-05-15 at 10.42.54.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Simulator Screen Shot - iPhone 8 Plus - 2018-05-15 at 10.42.54.png"; sourceTree = "<group>"; };
 		E9312CC120AA88D5009498AF /* UIDesignables.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UIDesignables.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E973FEEA20AA146A0040BB11 /* UIPickers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UIPickers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E973FEED20AA146A0040BB11 /* UINumberPicker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UINumberPicker.h; sourceTree = "<group>"; };
@@ -102,12 +106,15 @@
 		E973FEEC20AA146A0040BB11 /* UINumberPicker */ = {
 			isa = PBXGroup;
 			children = (
+				E973FEED20AA146A0040BB11 /* UINumberPicker.h */,
 				E97BDAE420AB37F600B0F699 /* UIDateAndTimePickerViewController.swift */,
 				E973FF1520AA14CC0040BB11 /* UIEntryPickerViewController.swift */,
 				E973FF1D20AA3C250040BB11 /* UIEntryPickerView.swift */,
 				E97BDAEE20AB39F300B0F699 /* UIPickerViewController.swift */,
-				E973FEED20AA146A0040BB11 /* UINumberPicker.h */,
+				E92AB05D20AB52CD0089FE9F /* UIOptionButton.swift */,
 				E973FEEE20AA146A0040BB11 /* Info.plist */,
+				E92AB05F20AB53AC0089FE9F /* temp.xib */,
+				E92AB06020AB53BC0089FE9F /* Simulator Screen Shot - iPhone 8 Plus - 2018-05-15 at 10.42.54.png */,
 			);
 			path = UINumberPicker;
 			sourceTree = "<group>";
@@ -235,6 +242,7 @@
 				E973FF1620AA14CC0040BB11 /* UIEntryPickerViewController.swift in Sources */,
 				E97BDAEF20AB39F300B0F699 /* UIPickerViewController.swift in Sources */,
 				E973FF1E20AA3C250040BB11 /* UIEntryPickerView.swift in Sources */,
+				E92AB05E20AB52CD0089FE9F /* UIOptionButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
