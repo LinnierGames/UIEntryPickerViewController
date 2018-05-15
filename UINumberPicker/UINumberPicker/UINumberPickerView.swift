@@ -10,11 +10,28 @@ import UIKit
 
 public class UINumberPickerView: UIView {
     
-    public enum EntryType {
-        case Major(String)
-        case Minor(String)
-        case EmptyMajor
-        case EmptyMinor
+    public struct Entry {
+        
+        public enum EntryType {
+            case Major
+            case Minor
+        }
+        public var type: EntryType
+        public var text: String?
+        
+        public static func major(with string: String) -> Entry {
+            return Entry(type: .Major, text: string)
+        }
+        
+        public static func minor(with string: String) -> Entry {
+            return Entry(type: .Minor, text: string)
+        }
+    }
+    
+    public var selectedPage: Int {
+        let pageSize = self.scrollView.frame.size
+        
+        return Int(self.scrollView.contentOffset.x / pageSize.width)
     }
     
     public var scrollView: UIScrollView {
@@ -38,7 +55,7 @@ public class UINumberPickerView: UIView {
         return sv
     }()
     
-    public private(set) var entries: [EntryType]
+    public private(set) var entries: [Entry]
     
     public private(set) var focusSize: CGSize
     
@@ -51,7 +68,7 @@ public class UINumberPickerView: UIView {
         focusSize: CGSize,
         majorAttributes: [NSAttributedStringKey: Any] = [:],
         minorAttributes: [NSAttributedStringKey: Any] = [:],
-        entries: [EntryType]) {
+        entries: [Entry]) {
         self.entries = entries
         self.focusSize = focusSize
         self.majorAttributes = majorAttributes
@@ -62,7 +79,7 @@ public class UINumberPickerView: UIView {
         self.initLayout()
     }
     
-    public convenience init(frame: CGRect = CGRect.zero, focusSize: CGSize, entries: EntryType...) {
+    public convenience init(frame: CGRect = CGRect.zero, focusSize: CGSize, entries: Entry...) {
         self.init(frame: frame, focusSize: focusSize, entries: entries)
     }
     
@@ -94,21 +111,12 @@ public class UINumberPickerView: UIView {
         
         //create uilabels with entry type
         for anEntry in self.entries {
-            let entryTextValue: String?
             let entryColorValue: UIColor
             
-            switch anEntry {
-            case .Major(let string):
-                entryTextValue = string
+            switch anEntry.type {
+            case .Major:
                 entryColorValue = .green
-            case .Minor(let string):
-                entryTextValue = string
-                entryColorValue = .blue
-            case .EmptyMajor:
-                entryTextValue = nil
-                entryColorValue = .green
-            case .EmptyMinor:
-                entryTextValue = nil
+            case .Minor:
                 entryColorValue = .blue
             }
             
@@ -116,8 +124,10 @@ public class UINumberPickerView: UIView {
             label.textAlignment = .center
             label.translatesAutoresizingMaskIntoConstraints = false
             label.setContentCompressionResistancePriority(.required, for: .horizontal)
-            label.widthAnchor.constraint(greaterThanOrEqualToConstant: self.focusSize.width).isActive = true
-            label.text = entryTextValue
+            label.widthAnchor.constraint(equalToConstant: self.focusSize.width).isActive = true
+            label.text = anEntry.text
+            label.adjustsFontSizeToFitWidth = true
+//            label.margin
             
             //entry type using a calayer
 //            let entryTypeShape = CAShapeLayer()
@@ -200,7 +210,7 @@ fileprivate class ScrollView: UIScrollView {
         let pageSize = bounds.size
         let location = gesture.location(in: self)
         
-        guard location.x <= self.contentSize.width else {
+        guard location.x <= self.contentSize.width, location.x > 0 else {
             return
         }
         

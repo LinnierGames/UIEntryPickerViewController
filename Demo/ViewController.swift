@@ -22,7 +22,8 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        let vc = UINumberPickerViewController(headerText: "Duration", messageText: "How long will this task take to complete", values: "")
+        let entries: [UINumberPickerView.Entry] = [.major(with: "0"), .minor(with: "15min"), .minor(with: "30min"), .minor(with: "45min"), .major(with: "1hr"), .minor(with: "1hr 30min"), .minor(with: "2hr")]
+        let vc = UINumberPickerViewController(headerText: "Duration", messageText: "How long will this task take to complete", values: entries)
         self.present(vc, animated: true)
     }
 }

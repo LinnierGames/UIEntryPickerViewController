@@ -14,6 +14,8 @@ public class UINumberPickerViewController: UIViewController {
     
     public var messageText: String
     
+    public var entries: [UINumberPickerView.Entry]
+    
     public var dismissButtonTitle: String = "Done"
     
     private lazy var stackView: UIStackView = {
@@ -37,16 +39,22 @@ public class UINumberPickerViewController: UIViewController {
         return container
     }()
     
-    public init(headerText: String, messageText: String = "", values: String...) {
+    public init(headerText: String, messageText: String = "", values: [UINumberPickerView.Entry]) {
         self.headerText = headerText
         self.messageText = messageText
+        self.entries = values
         
         super.init(nibName: nil, bundle: nil)
+    }
+    
+    public convenience init(headerText: String, messageText: String = "", values: UINumberPickerView.Entry...) {
+        self.init(headerText: headerText, messageText: messageText, values: values)
     }
     
     required public init?(coder aDecoder: NSCoder) {
         headerText = ""
         messageText = ""
+        entries = []
         
         super.init(coder: aDecoder)
     }
@@ -73,8 +81,8 @@ public class UINumberPickerViewController: UIViewController {
         self.stackView.addArrangedSubview(descriptionLabel)
         
         //scroll view picker
-        let entries: [UINumberPickerView.EntryType] = [.Major("0"), .Minor("15"), .Minor("30"), .Minor("45"), .Major("1hr"), .Minor("1h 30m"), .Major("2hr")]
-        let picker = UINumberPickerView(focusSize: CGSize(width: 72, height: 72), entries: entries)
+        let picker = UINumberPickerView(focusSize: CGSize(width: 72, height: 72), entries: self.entries)
+        picker.scrollView.delegate = self
         self.stackView.addArrangedSubview(picker)
         
         //ok button
@@ -109,4 +117,10 @@ public class UINumberPickerViewController: UIViewController {
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.35)
     }
 
+}
+
+extension UINumberPickerViewController: UIScrollViewDelegate {
+    public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        
+    }
 }

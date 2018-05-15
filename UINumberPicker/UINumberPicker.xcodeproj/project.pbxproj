@@ -76,9 +76,9 @@
 			isa = PBXGroup;
 			children = (
 				E973FF1520AA14CC0040BB11 /* UINumberPickerViewController.swift */,
+				E973FF1D20AA3C250040BB11 /* UINumberPickerView.swift */,
 				E973FEED20AA146A0040BB11 /* UINumberPicker.h */,
 				E973FEEE20AA146A0040BB11 /* Info.plist */,
-				E973FF1D20AA3C250040BB11 /* UINumberPickerView.swift */,
 			);
 			path = UINumberPicker;
 			sourceTree = "<group>";
