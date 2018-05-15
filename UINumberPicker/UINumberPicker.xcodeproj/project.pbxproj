@@ -7,9 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E9312CD220AA964D009498AF /* UIDesignables.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9312CCA20AA891B009498AF /* UIDesignables.framework */; };
-		E9312CDD20AA9AB5009498AF /* UIDesignables.framework in Embedded Frameworks */ = {isa = PBXBuildFile; fileRef = E9312CCA20AA891B009498AF /* UIDesignables.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		E973FEF420AA146A0040BB11 /* UINumberPicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E973FEEA20AA146A0040BB11 /* UINumberPicker.framework */; };
+		E973FEF420AA146A0040BB11 /* UIEntryPicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E973FEEA20AA146A0040BB11 /* UIEntryPicker.framework */; };
 		E973FEF920AA146A0040BB11 /* UINumberPickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E973FEF820AA146A0040BB11 /* UINumberPickerTests.swift */; };
 		E973FEFB20AA146A0040BB11 /* UINumberPicker.h in Headers */ = {isa = PBXBuildFile; fileRef = E973FEED20AA146A0040BB11 /* UINumberPicker.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E973FF1620AA14CC0040BB11 /* UIEntryPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E973FF1520AA14CC0040BB11 /* UIEntryPickerViewController.swift */; };
@@ -17,27 +15,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		E9312CC920AA891B009498AF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E9312CC420AA891B009498AF /* UIDesignables.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = E9312C8620AA8784009498AF;
-			remoteInfo = UIDesignables;
-		};
-		E9312CCB20AA891B009498AF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E9312CC420AA891B009498AF /* UIDesignables.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = E9312C8F20AA8784009498AF;
-			remoteInfo = UIDesignablesTests;
-		};
-		E9312CDA20AA9A88009498AF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E9312CC420AA891B009498AF /* UIDesignables.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = E9312C8520AA8784009498AF;
-			remoteInfo = UIDesignables;
-		};
 		E973FEF520AA146A0040BB11 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E973FEE120AA146A0040BB11 /* Project object */;
@@ -54,7 +31,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				E9312CDD20AA9AB5009498AF /* UIDesignables.framework in Embedded Frameworks */,
 			);
 			name = "Embedded Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -63,8 +39,7 @@
 
 /* Begin PBXFileReference section */
 		E9312CC120AA88D5009498AF /* UIDesignables.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UIDesignables.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E9312CC420AA891B009498AF /* UIDesignables.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = UIDesignables.xcodeproj; path = ../../../UIDesignables/UIDesignables/UIDesignables.xcodeproj; sourceTree = "<group>"; };
-		E973FEEA20AA146A0040BB11 /* UINumberPicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UINumberPicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E973FEEA20AA146A0040BB11 /* UIEntryPicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UIEntryPicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E973FEED20AA146A0040BB11 /* UINumberPicker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UINumberPicker.h; sourceTree = "<group>"; };
 		E973FEEE20AA146A0040BB11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E973FEF320AA146A0040BB11 /* UINumberPickerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UINumberPickerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,7 +54,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9312CD220AA964D009498AF /* UIDesignables.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,7 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E973FEF420AA146A0040BB11 /* UINumberPicker.framework in Frameworks */,
+				E973FEF420AA146A0040BB11 /* UIEntryPicker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,15 +74,6 @@
 				E9312CC120AA88D5009498AF /* UIDesignables.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		E9312CC520AA891B009498AF /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				E9312CCA20AA891B009498AF /* UIDesignables.framework */,
-				E9312CCC20AA891B009498AF /* UIDesignablesTests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		E973FEE020AA146A0040BB11 = {
@@ -124,7 +89,7 @@
 		E973FEEB20AA146A0040BB11 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E973FEEA20AA146A0040BB11 /* UINumberPicker.framework */,
+				E973FEEA20AA146A0040BB11 /* UIEntryPicker.framework */,
 				E973FEF320AA146A0040BB11 /* UINumberPickerTests.xctest */,
 			);
 			name = Products;
@@ -137,7 +102,6 @@
 				E973FF1D20AA3C250040BB11 /* UIEntryPickerView.swift */,
 				E973FEED20AA146A0040BB11 /* UINumberPicker.h */,
 				E973FEEE20AA146A0040BB11 /* Info.plist */,
-				E9312CC420AA891B009498AF /* UIDesignables.xcodeproj */,
 			);
 			path = UINumberPicker;
 			sourceTree = "<group>";
@@ -165,9 +129,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		E973FEE920AA146A0040BB11 /* UINumberPicker */ = {
+		E973FEE920AA146A0040BB11 /* UIEntryPicker */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E973FEFE20AA146A0040BB11 /* Build configuration list for PBXNativeTarget "UINumberPicker" */;
+			buildConfigurationList = E973FEFE20AA146A0040BB11 /* Build configuration list for PBXNativeTarget "UIEntryPicker" */;
 			buildPhases = (
 				E973FEE520AA146A0040BB11 /* Sources */,
 				E973FEE620AA146A0040BB11 /* Frameworks */,
@@ -178,11 +142,10 @@
 			buildRules = (
 			);
 			dependencies = (
-				E9312CDB20AA9A88009498AF /* PBXTargetDependency */,
 			);
-			name = UINumberPicker;
+			name = UIEntryPicker;
 			productName = UINumberPicker;
-			productReference = E973FEEA20AA146A0040BB11 /* UINumberPicker.framework */;
+			productReference = E973FEEA20AA146A0040BB11 /* UIEntryPicker.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		E973FEF220AA146A0040BB11 /* UINumberPickerTests */ = {
@@ -232,36 +195,13 @@
 			mainGroup = E973FEE020AA146A0040BB11;
 			productRefGroup = E973FEEB20AA146A0040BB11 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = E9312CC520AA891B009498AF /* Products */;
-					ProjectRef = E9312CC420AA891B009498AF /* UIDesignables.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
-				E973FEE920AA146A0040BB11 /* UINumberPicker */,
+				E973FEE920AA146A0040BB11 /* UIEntryPicker */,
 				E973FEF220AA146A0040BB11 /* UINumberPickerTests */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		E9312CCA20AA891B009498AF /* UIDesignables.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = UIDesignables.framework;
-			remoteRef = E9312CC920AA891B009498AF /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		E9312CCC20AA891B009498AF /* UIDesignablesTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = UIDesignablesTests.xctest;
-			remoteRef = E9312CCB20AA891B009498AF /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		E973FEE820AA146A0040BB11 /* Resources */ = {
@@ -301,14 +241,9 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		E9312CDB20AA9A88009498AF /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = UIDesignables;
-			targetProxy = E9312CDA20AA9A88009498AF /* PBXContainerItemProxy */;
-		};
 		E973FEF620AA146A0040BB11 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = E973FEE920AA146A0040BB11 /* UINumberPicker */;
+			target = E973FEE920AA146A0040BB11 /* UIEntryPicker */;
 			targetProxy = E973FEF520AA146A0040BB11 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -537,7 +472,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E973FEFE20AA146A0040BB11 /* Build configuration list for PBXNativeTarget "UINumberPicker" */ = {
+		E973FEFE20AA146A0040BB11 /* Build configuration list for PBXNativeTarget "UIEntryPicker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E973FEFF20AA146A0040BB11 /* Debug */,

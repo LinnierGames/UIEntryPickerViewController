@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import UIDesignables
 
 @objc public protocol UIEntryPickerViewControllerDelegate: class {
     @objc optional func entryPicker(_ entryPickerViewController: UIEntryPickerViewController, didFinishWith selectedIndex: Int)
@@ -21,6 +20,7 @@ public class UIEntryPickerViewController: UIViewController {
     
     public var messageText: String
     
+    //TODO: use a computed var
     public var entries: [UIEntryPickerView.Entry]
     
     public var defaultEntryIndex: Int = 0

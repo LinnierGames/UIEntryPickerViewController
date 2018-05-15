@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import UINumberPicker
+import UIEntryPicker
 
 class ViewController: UIViewController {
     
@@ -27,7 +27,9 @@ class ViewController: UIViewController {
     // MARK: - VOID METHODS
     
     // MARK: - IBACTIONS
+    @IBOutlet weak var picker: UIDatePicker!
     
+    @IBOutlet weak var button: UIButton!
     @IBAction func pressButton(_ sender: Any) {
         let vc = UIEntryPickerViewController(headerText: "Duration", messageText: "How long will this task take to complete", values: entries)
         vc.delegate = self
@@ -37,11 +39,18 @@ class ViewController: UIViewController {
     
     // MARK: - LIFE CYCLE
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { (_) in
+            self.picker.datePickerMode = .dateAndTime
+        }
+    }
 }
 
 extension ViewController: UIEntryPickerViewControllerDelegate {
     func entryPicker(_ entryPickerViewController: UIEntryPickerViewController, didFinishWith selectedIndex: Int) {
-        print(entries[selectedIndex])
+        button.setTitle(entries[selectedIndex].text, for: .normal)
     }
 }
 
