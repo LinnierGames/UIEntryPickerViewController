@@ -7,23 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E92AB05A20AB3E780089FE9F /* UIPickers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E92AB05920AB3E780089FE9F /* UIPickers.framework */; };
 		E973FECF20AA14480040BB11 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E973FECE20AA14480040BB11 /* AppDelegate.swift */; };
 		E973FED120AA14480040BB11 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E973FED020AA14480040BB11 /* ViewController.swift */; };
 		E973FED420AA14480040BB11 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E973FED220AA14480040BB11 /* Main.storyboard */; };
 		E973FED620AA144A0040BB11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E973FED520AA144A0040BB11 /* Assets.xcassets */; };
 		E973FED920AA144A0040BB11 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E973FED720AA144A0040BB11 /* LaunchScreen.storyboard */; };
-		E973FF1A20AA15300040BB11 /* UINumberPicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E973FF1820AA14DD0040BB11 /* UINumberPicker.framework */; };
-		E973FF1B20AA15300040BB11 /* UINumberPicker.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E973FF1820AA14DD0040BB11 /* UINumberPicker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		E973FF1C20AA15300040BB11 /* Embed Frameworks */ = {
+		E97BDAE920AB392900B0F699 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				E973FF1B20AA15300040BB11 /* UINumberPicker.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -31,6 +29,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E92AB05920AB3E780089FE9F /* UIPickers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UIPickers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E973FECB20AA14480040BB11 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E973FECE20AA14480040BB11 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E973FED020AA14480040BB11 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -38,8 +37,6 @@
 		E973FED520AA144A0040BB11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E973FED820AA144A0040BB11 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E973FEDA20AA144A0040BB11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E973FF1820AA14DD0040BB11 /* UINumberPicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UINumberPicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E97BDAA620AA9E0700B0F699 /* UIDesignables.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIDesignables.framework; path = "../../../../Library/Developer/Xcode/DerivedData/UINumberPicker-gvwlncnitnfajshelphmwxouibvo/Build/Products/Debug-iphoneos/UIDesignables.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,7 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E973FF1A20AA15300040BB11 /* UINumberPicker.framework in Frameworks */,
+				E92AB05A20AB3E780089FE9F /* UIPickers.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,8 +84,7 @@
 		E973FF1720AA14DD0040BB11 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E97BDAA620AA9E0700B0F699 /* UIDesignables.framework */,
-				E973FF1820AA14DD0040BB11 /* UINumberPicker.framework */,
+				E92AB05920AB3E780089FE9F /* UIPickers.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -103,7 +99,7 @@
 				E973FEC720AA14480040BB11 /* Sources */,
 				E973FEC820AA14480040BB11 /* Frameworks */,
 				E973FEC920AA14480040BB11 /* Resources */,
-				E973FF1C20AA15300040BB11 /* Embed Frameworks */,
+				E97BDAE920AB392900B0F699 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

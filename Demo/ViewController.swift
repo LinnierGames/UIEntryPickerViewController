@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import UIEntryPicker
+import UIPickers
 
 class ViewController: UIViewController {
     
@@ -27,10 +27,13 @@ class ViewController: UIViewController {
     // MARK: - VOID METHODS
     
     // MARK: - IBACTIONS
-    @IBOutlet weak var picker: UIDatePicker!
     
     @IBOutlet weak var button: UIButton!
     @IBAction func pressButton(_ sender: Any) {
+        self.present(UIDateAndTimePickerViewController(headerText: "Deadline", messageText: "When is this task due", date: Date(timeIntervalSince1970: 1))
+            , animated: true)
+        return
+        
         let vc = UIEntryPickerViewController(headerText: "Duration", messageText: "How long will this task take to complete", values: entries)
         vc.delegate = self
         vc.defaultEntryIndex = 4
@@ -38,14 +41,6 @@ class ViewController: UIViewController {
     }
     
     // MARK: - LIFE CYCLE
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { (_) in
-            self.picker.datePickerMode = .dateAndTime
-        }
-    }
 }
 
 extension ViewController: UIEntryPickerViewControllerDelegate {

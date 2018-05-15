@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E973FEF420AA146A0040BB11 /* UIEntryPicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E973FEEA20AA146A0040BB11 /* UIEntryPicker.framework */; };
+		E973FEF420AA146A0040BB11 /* UIPickers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E973FEEA20AA146A0040BB11 /* UIPickers.framework */; };
 		E973FEF920AA146A0040BB11 /* UINumberPickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E973FEF820AA146A0040BB11 /* UINumberPickerTests.swift */; };
 		E973FEFB20AA146A0040BB11 /* UINumberPicker.h in Headers */ = {isa = PBXBuildFile; fileRef = E973FEED20AA146A0040BB11 /* UINumberPicker.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E973FF1620AA14CC0040BB11 /* UIEntryPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E973FF1520AA14CC0040BB11 /* UIEntryPickerViewController.swift */; };
 		E973FF1E20AA3C250040BB11 /* UIEntryPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E973FF1D20AA3C250040BB11 /* UIEntryPickerView.swift */; };
+		E97BDAE520AB37F600B0F699 /* UIDateAndTimePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97BDAE420AB37F600B0F699 /* UIDateAndTimePickerViewController.swift */; };
+		E97BDAEF20AB39F300B0F699 /* UIPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97BDAEE20AB39F300B0F699 /* UIPickerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +41,7 @@
 
 /* Begin PBXFileReference section */
 		E9312CC120AA88D5009498AF /* UIDesignables.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UIDesignables.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E973FEEA20AA146A0040BB11 /* UIEntryPicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UIEntryPicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E973FEEA20AA146A0040BB11 /* UIPickers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UIPickers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E973FEED20AA146A0040BB11 /* UINumberPicker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UINumberPicker.h; sourceTree = "<group>"; };
 		E973FEEE20AA146A0040BB11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E973FEF320AA146A0040BB11 /* UINumberPickerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UINumberPickerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,6 +49,8 @@
 		E973FEFA20AA146A0040BB11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E973FF1520AA14CC0040BB11 /* UIEntryPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIEntryPickerViewController.swift; sourceTree = "<group>"; };
 		E973FF1D20AA3C250040BB11 /* UIEntryPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIEntryPickerView.swift; sourceTree = "<group>"; };
+		E97BDAE420AB37F600B0F699 /* UIDateAndTimePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDateAndTimePickerViewController.swift; sourceTree = "<group>"; };
+		E97BDAEE20AB39F300B0F699 /* UIPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPickerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E973FEF420AA146A0040BB11 /* UIEntryPicker.framework in Frameworks */,
+				E973FEF420AA146A0040BB11 /* UIPickers.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,7 +93,7 @@
 		E973FEEB20AA146A0040BB11 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E973FEEA20AA146A0040BB11 /* UIEntryPicker.framework */,
+				E973FEEA20AA146A0040BB11 /* UIPickers.framework */,
 				E973FEF320AA146A0040BB11 /* UINumberPickerTests.xctest */,
 			);
 			name = Products;
@@ -98,8 +102,10 @@
 		E973FEEC20AA146A0040BB11 /* UINumberPicker */ = {
 			isa = PBXGroup;
 			children = (
+				E97BDAE420AB37F600B0F699 /* UIDateAndTimePickerViewController.swift */,
 				E973FF1520AA14CC0040BB11 /* UIEntryPickerViewController.swift */,
 				E973FF1D20AA3C250040BB11 /* UIEntryPickerView.swift */,
+				E97BDAEE20AB39F300B0F699 /* UIPickerViewController.swift */,
 				E973FEED20AA146A0040BB11 /* UINumberPicker.h */,
 				E973FEEE20AA146A0040BB11 /* Info.plist */,
 			);
@@ -129,9 +135,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		E973FEE920AA146A0040BB11 /* UIEntryPicker */ = {
+		E973FEE920AA146A0040BB11 /* UIPickers */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E973FEFE20AA146A0040BB11 /* Build configuration list for PBXNativeTarget "UIEntryPicker" */;
+			buildConfigurationList = E973FEFE20AA146A0040BB11 /* Build configuration list for PBXNativeTarget "UIPickers" */;
 			buildPhases = (
 				E973FEE520AA146A0040BB11 /* Sources */,
 				E973FEE620AA146A0040BB11 /* Frameworks */,
@@ -143,9 +149,9 @@
 			);
 			dependencies = (
 			);
-			name = UIEntryPicker;
+			name = UIPickers;
 			productName = UINumberPicker;
-			productReference = E973FEEA20AA146A0040BB11 /* UIEntryPicker.framework */;
+			productReference = E973FEEA20AA146A0040BB11 /* UIPickers.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		E973FEF220AA146A0040BB11 /* UINumberPickerTests */ = {
@@ -197,7 +203,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E973FEE920AA146A0040BB11 /* UIEntryPicker */,
+				E973FEE920AA146A0040BB11 /* UIPickers */,
 				E973FEF220AA146A0040BB11 /* UINumberPickerTests */,
 			);
 		};
@@ -225,7 +231,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E97BDAE520AB37F600B0F699 /* UIDateAndTimePickerViewController.swift in Sources */,
 				E973FF1620AA14CC0040BB11 /* UIEntryPickerViewController.swift in Sources */,
+				E97BDAEF20AB39F300B0F699 /* UIPickerViewController.swift in Sources */,
 				E973FF1E20AA3C250040BB11 /* UIEntryPickerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -243,7 +251,7 @@
 /* Begin PBXTargetDependency section */
 		E973FEF620AA146A0040BB11 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = E973FEE920AA146A0040BB11 /* UIEntryPicker */;
+			target = E973FEE920AA146A0040BB11 /* UIPickers */;
 			targetProxy = E973FEF520AA146A0040BB11 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -472,7 +480,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E973FEFE20AA146A0040BB11 /* Build configuration list for PBXNativeTarget "UIEntryPicker" */ = {
+		E973FEFE20AA146A0040BB11 /* Build configuration list for PBXNativeTarget "UIPickers" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E973FEFF20AA146A0040BB11 /* Debug */,
