@@ -30,16 +30,16 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var button: UIButton!
     @IBAction func pressButton(_ sender: Any) {
-        let vcDate = UIDateAndTimePickerViewController(headerText: "Deadline", messageText: "When is this task due", date: Date(timeIntervalSince1970: 1))
-        vcDate.delegate = self
-        self.present(vcDate
-            , animated: true)
-        return
-        
         let vc = UIEntryPickerViewController(headerText: "Duration", messageText: "How long will this task take to complete", values: entries)
         vc.delegate = self
         vc.defaultEntryIndex = 4
         self.present(vc, animated: true)
+        return
+        
+        let vcDate = UIDateAndTimePickerViewController(headerText: "Deadline", messageText: "When is this task due", date: Date(timeIntervalSince1970: 1))
+        vcDate.delegate = self
+        self.present(vcDate
+            , animated: true)
     }
     
     // MARK: - LIFE CYCLE
