@@ -13,7 +13,7 @@
 		E973FEFB20AA146A0040BB11 /* UINumberPicker.h in Headers */ = {isa = PBXBuildFile; fileRef = E973FEED20AA146A0040BB11 /* UINumberPicker.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E973FF1620AA14CC0040BB11 /* UIEntryPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E973FF1520AA14CC0040BB11 /* UIEntryPickerViewController.swift */; };
 		E973FF1E20AA3C250040BB11 /* UIEntryPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E973FF1D20AA3C250040BB11 /* UIEntryPickerView.swift */; };
-		E97BDAE520AB37F600B0F699 /* UIDateAndTimePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97BDAE420AB37F600B0F699 /* UIDateAndTimePickerViewController.swift */; };
+		E97BDAE520AB37F600B0F699 /* UICalendarDatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97BDAE420AB37F600B0F699 /* UICalendarDatePickerViewController.swift */; };
 		E97BDAEF20AB39F300B0F699 /* UIPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97BDAEE20AB39F300B0F699 /* UIPickerViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -53,7 +53,7 @@
 		E973FEFA20AA146A0040BB11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E973FF1520AA14CC0040BB11 /* UIEntryPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIEntryPickerViewController.swift; sourceTree = "<group>"; };
 		E973FF1D20AA3C250040BB11 /* UIEntryPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIEntryPickerView.swift; sourceTree = "<group>"; };
-		E97BDAE420AB37F600B0F699 /* UIDateAndTimePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDateAndTimePickerViewController.swift; sourceTree = "<group>"; };
+		E97BDAE420AB37F600B0F699 /* UICalendarDatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICalendarDatePickerViewController.swift; sourceTree = "<group>"; };
 		E97BDAEE20AB39F300B0F699 /* UIPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPickerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -107,7 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				E973FEED20AA146A0040BB11 /* UINumberPicker.h */,
-				E97BDAE420AB37F600B0F699 /* UIDateAndTimePickerViewController.swift */,
+				E97BDAE420AB37F600B0F699 /* UICalendarDatePickerViewController.swift */,
 				E973FF1520AA14CC0040BB11 /* UIEntryPickerViewController.swift */,
 				E973FF1D20AA3C250040BB11 /* UIEntryPickerView.swift */,
 				E97BDAEE20AB39F300B0F699 /* UIPickerViewController.swift */,
@@ -238,7 +238,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E97BDAE520AB37F600B0F699 /* UIDateAndTimePickerViewController.swift in Sources */,
+				E97BDAE520AB37F600B0F699 /* UICalendarDatePickerViewController.swift in Sources */,
 				E973FF1620AA14CC0040BB11 /* UIEntryPickerViewController.swift in Sources */,
 				E97BDAEF20AB39F300B0F699 /* UIPickerViewController.swift in Sources */,
 				E973FF1E20AA3C250040BB11 /* UIEntryPickerView.swift in Sources */,

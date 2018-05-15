@@ -43,7 +43,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var buttonDateAndTimePicker: UIButton!
     @IBAction func pressDateAndTimePicker(_ sender: Any) {
-        let vc = UIDateAndTimePickerViewController(headerText: "Deadline", messageText: "When is this task due", date: Date(timeIntervalSince1970: 1))
+        let vc = UICalendarDatePickerViewController(headerText: "Deadline", messageText: "When is this task due", date: Date(timeIntervalSince1970: 1))
         vc.delegate = self
         self.present(vc, animated: true)
     }
@@ -57,8 +57,8 @@ extension ViewController: UIEntryPickerViewControllerDelegate {
     }
 }
 
-extension ViewController: UIDateAndTimePickerViewControllerDelegate {
-    func dateAndTimePicker(_ dateAndTimePicker: UIDateAndTimePickerViewController, didFinishWith selectedDate: Date, and isTimeIncluded: Bool) {
+extension ViewController: UIDatePickerViewControllerDelegate {
+    func datePicker(_ datePicker: UIDatePickerViewController, didFinishWith selectedDate: Date) {
         buttonDateAndTimePicker.setTitle(String(describing: selectedDate), for: .normal)
     }
 }

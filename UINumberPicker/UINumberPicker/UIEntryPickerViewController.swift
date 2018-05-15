@@ -27,7 +27,7 @@ public class UIEntryPickerViewController: UIPickerViewController {
         return picker
     }()
     
-    public init(headerText: String, messageText: String = "", values: [UIEntryPickerView.Entry]) {
+    public init(headerText: String?, messageText: String? = "", values: [UIEntryPickerView.Entry]) {
         self.entries = values
         
         super.init(headerText: headerText, messageText: messageText)
