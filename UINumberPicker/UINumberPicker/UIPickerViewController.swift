@@ -131,10 +131,6 @@ open class UIPickerViewController: UIViewController {
         self.presentingViewController?.dismiss(animated: true)
     }
     
-    public func show() {
-        //TODO: present above all of the views
-    }
-    
     // MARK: - LIFE CYCLE
     
 }

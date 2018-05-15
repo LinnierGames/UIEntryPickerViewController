@@ -59,7 +59,17 @@ extension ViewController: UIEntryPickerViewControllerDelegate {
 
 extension ViewController: UIDatePickerViewControllerDelegate {
     func datePicker(_ datePicker: UIDatePickerViewController, didFinishWith selectedDate: Date) {
-        buttonDateAndTimePicker.setTitle(String(describing: selectedDate), for: .normal)
+        guard let datePicker = datePicker as? UICalendarDatePickerViewController else { return }
+        
+        let formattedText: String = {
+            if datePicker.isTimeIncluded {
+                return selectedDate.formattedStringWith(.Day_ofTheWeekShorthand, " " , .Month_fullName, ", ", .Day_ofTheMonthNoPadding, " ", .Year_noPadding, " 'at' ", .Time_noPadding_am_pm)
+            } else {
+                return selectedDate.formattedStringWith(.Day_ofTheWeekShorthand, " " , .Month_fullName, ", ", .Day_ofTheMonthNoPadding, " ", .Year_noPadding)
+            }
+        }()
+        
+        buttonDateAndTimePicker.setTitle(formattedText, for: .normal)
     }
 }
 
