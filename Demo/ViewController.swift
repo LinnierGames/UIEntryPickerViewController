@@ -12,7 +12,7 @@ import UINumberPicker
 class ViewController: UIViewController {
     
     let entries: [UIEntryPickerView.Entry] = [
-        .major(with: "0"), .minor(with: "15min"), .minor(with: "30min"), .minor(with: "45min"),
+        .major(with: "None"), .minor(with: "15min"), .minor(with: "30min"), .minor(with: "45min"),
         .major(with: "1hr"), .minor(with: "1hr 30min"),
         .minor(with: "2hr"), .minor(with: "2hr 30min"),
         .minor(with: "3hr"), .minor(with: "3hr 30min"),
@@ -31,6 +31,7 @@ class ViewController: UIViewController {
     @IBAction func pressButton(_ sender: Any) {
         let vc = UIEntryPickerViewController(headerText: "Duration", messageText: "How long will this task take to complete", values: entries)
         vc.delegate = self
+        vc.defaultEntryIndex = 4
         self.present(vc, animated: true)
     }
     

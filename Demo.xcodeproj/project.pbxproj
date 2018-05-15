@@ -14,8 +14,8 @@
 		E973FED920AA144A0040BB11 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E973FED720AA144A0040BB11 /* LaunchScreen.storyboard */; };
 		E973FF1A20AA15300040BB11 /* UINumberPicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E973FF1820AA14DD0040BB11 /* UINumberPicker.framework */; };
 		E973FF1B20AA15300040BB11 /* UINumberPicker.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E973FF1820AA14DD0040BB11 /* UINumberPicker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		E97BDAA220AA9BBA00B0F699 /* UIDesignables.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E97BDAA120AA9BBA00B0F699 /* UIDesignables.framework */; };
-		E97BDAA320AA9BBA00B0F699 /* UIDesignables.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E97BDAA120AA9BBA00B0F699 /* UIDesignables.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E97BDAA720AA9E2100B0F699 /* UIDesignables.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E97BDAA620AA9E0700B0F699 /* UIDesignables.framework */; };
+		E97BDAA820AA9E2100B0F699 /* UIDesignables.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E97BDAA620AA9E0700B0F699 /* UIDesignables.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,7 +25,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				E97BDAA320AA9BBA00B0F699 /* UIDesignables.framework in Embed Frameworks */,
+				E97BDAA820AA9E2100B0F699 /* UIDesignables.framework in Embed Frameworks */,
 				E973FF1B20AA15300040BB11 /* UINumberPicker.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -42,7 +42,7 @@
 		E973FED820AA144A0040BB11 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E973FEDA20AA144A0040BB11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E973FF1820AA14DD0040BB11 /* UINumberPicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UINumberPicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E97BDAA120AA9BBA00B0F699 /* UIDesignables.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UIDesignables.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E97BDAA620AA9E0700B0F699 /* UIDesignables.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIDesignables.framework; path = "../../../../Library/Developer/Xcode/DerivedData/UINumberPicker-gvwlncnitnfajshelphmwxouibvo/Build/Products/Debug-iphoneos/UIDesignables.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,7 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E97BDAA220AA9BBA00B0F699 /* UIDesignables.framework in Frameworks */,
+				E97BDAA720AA9E2100B0F699 /* UIDesignables.framework in Frameworks */,
 				E973FF1A20AA15300040BB11 /* UINumberPicker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -61,7 +61,6 @@
 		E973FEC220AA14480040BB11 = {
 			isa = PBXGroup;
 			children = (
-				E97BDAA120AA9BBA00B0F699 /* UIDesignables.framework */,
 				E973FECD20AA14480040BB11 /* Demo */,
 				E973FECC20AA14480040BB11 /* Products */,
 				E973FF1720AA14DD0040BB11 /* Frameworks */,
@@ -92,6 +91,7 @@
 		E973FF1720AA14DD0040BB11 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E97BDAA620AA9E0700B0F699 /* UIDesignables.framework */,
 				E973FF1820AA14DD0040BB11 /* UINumberPicker.framework */,
 			);
 			name = Frameworks;

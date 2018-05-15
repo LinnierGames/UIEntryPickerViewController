@@ -23,12 +23,14 @@ public class UIEntryPickerViewController: UIViewController {
     
     public var entries: [UIEntryPickerView.Entry]
     
+    public var defaultEntryIndex: Int = 0
+    
     public var dismissButtonTitle: String = "Done"
     
     private lazy var stackView: UIStackView = {
         let sv = UIStackView()
         sv.axis = .vertical
-        sv.spacing = 16.0
+        sv.spacing = 24.0
         sv.alignment = .fill
         sv.distribution = .fill
         sv.translatesAutoresizingMaskIntoConstraints = false
@@ -83,6 +85,15 @@ public class UIEntryPickerViewController: UIViewController {
     
     // MARK: - VOID METHODS
     
+    public func scrollTo(pageIndex: Int) {
+        guard pageIndex > 0 else { return }
+        
+        let pageOffset = CGFloat(pageIndex) * self.pickerView.focusSize.width
+        if pageOffset <= self.pickerView.scrollView.contentSize.width {
+            self.pickerView.scrollView.setContentOffset(CGPoint(x: pageOffset, y: 0), animated: true)
+        }
+    }
+    
     public override func loadView() {
         super.loadView()
         
@@ -108,9 +119,6 @@ public class UIEntryPickerViewController: UIViewController {
         okButton.addTarget(self, action: #selector(pressDone(_:)), for: .touchUpInside)
         okButton.setTitle(self.dismissButtonTitle, for: .normal)
         okButton.titleLabel!.font = UIFont.boldSystemFont(ofSize: 20)
-        UIDesignable
-            .wrapDesignable(to: okButton)
-            .margin(UIEdgeInsets(top: 16, left: 12, bottom: 16, right: 12))
         self.stackView.addArrangedSubview(okButton)
         
         //Layout
@@ -126,6 +134,9 @@ public class UIEntryPickerViewController: UIViewController {
         self.view.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: 16.0).isActive = true
         
         self.view.layoutIfNeeded()
+        
+        //scroll to default page
+        self.scrollTo(pageIndex: self.defaultEntryIndex)
     }
     
     // MARK: - IBACTIONS

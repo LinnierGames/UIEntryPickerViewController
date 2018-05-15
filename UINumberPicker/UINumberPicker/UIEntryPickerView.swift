@@ -155,6 +155,16 @@ public class UIEntryPickerView: UIView {
         scrollView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         
         scrollView.decelerationRate = 0.2
+        
+        //fade sides
+        let gradientShape = CAGradientLayer()
+        let colors: [UIColor] = [.clear, .white, .white, .clear]
+        gradientShape.colors = colors.map { $0.cgColor }
+        gradientShape.locations = [0.0, 0.3, 0.7, 1.0]
+        gradientShape.startPoint = CGPoint(x: 0, y: 0.5)
+        gradientShape.endPoint = CGPoint(x: 1, y: 0.5)
+        gradientShape.frame = bounds
+        layer.mask = gradientShape
     }
     
     /**
@@ -179,6 +189,7 @@ public class UIEntryPickerView: UIView {
         super.layoutSubviews()
         
         scrollViewSelectedLayer.frame = scrollView.frame
+        layer.mask!.frame = layer.bounds
     }
     
     // MARK: - IBACTIONS
@@ -187,13 +198,7 @@ public class UIEntryPickerView: UIView {
 
 }
 
-fileprivate protocol ScrollViewEventDelegate: class {
-//    func scrollView(_ scrollView: ScrollView, didTap)
-}
-
 fileprivate class ScrollView: UIScrollView {
-    
-//    unowned var delegate: ScrollViewEventDelegate
     
     // MARK: - RETURN VALUES
     
