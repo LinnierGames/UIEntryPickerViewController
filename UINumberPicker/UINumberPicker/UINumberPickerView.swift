@@ -17,8 +17,12 @@ public class UINumberPickerView: UIView {
         case EmptyMinor
     }
     
-    public private(set) lazy var scrollView: UIScrollView = {
-        let sv = UIScrollView()
+    public var scrollView: UIScrollView {
+        return self._scrollView
+    }
+    
+    private lazy var _scrollView: ScrollView = {
+        let sv = ScrollView()
         sv.translatesAutoresizingMaskIntoConstraints = false
         
         sv.widthAnchor.constraint(equalToConstant: self.focusSize.width).isActive = true
@@ -78,6 +82,8 @@ public class UINumberPickerView: UIView {
     // MARK: - VOID METHODS
     
     private func initLayout() {
+        
+        clipsToBounds = true
         
         /** contains the labels to be scroll horizontally */
         let horzStackView = UIStackView()
@@ -142,8 +148,67 @@ public class UINumberPickerView: UIView {
         scrollView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
     }
     
+    /**
+     delegate the touches made in self to the scroll view. Since the frame of the
+     scroll view does not expand to the bounds of self, touches are limited to the
+     frame of the scroll view. This will expand touches made inside self to pan
+     the scroll view
+     */
+    public override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        guard let view = super.hitTest(point, with: event) else {
+            return nil
+        }
+        
+        if view === self, self.subviews.count > 0 {
+            return self.subviews[0] as! UIScrollView
+        } else {
+            return view
+        }
+    }
+    
     // MARK: - IBACTIONS
     
     // MARK: - LIFE CYCLE
 
+}
+
+fileprivate protocol ScrollViewEventDelegate: class {
+//    func scrollView(_ scrollView: ScrollView, didTap)
+}
+
+fileprivate class ScrollView: UIScrollView {
+    
+//    unowned var delegate: ScrollViewEventDelegate
+    
+    // MARK: - RETURN VALUES
+    
+    // MARK: - VOID METHODS
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        //tap gesture
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tap(_:)))
+        self.addGestureRecognizer(tap)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    @objc private func tap(_ gesture: UITapGestureRecognizer) {
+        let pageSize = bounds.size
+        let location = gesture.location(in: self)
+        
+        guard location.x <= self.contentSize.width else {
+            return
+        }
+        
+        let tappedPageIndex = Int(location.x / pageSize.width)
+        self.setContentOffset(CGPoint(x: pageSize.width * CGFloat(tappedPageIndex), y: 0), animated: true)
+    }
+    
+    // MARK: - IBACTIONS
+    
+    // MARK: - LIFE CYCLE
 }
