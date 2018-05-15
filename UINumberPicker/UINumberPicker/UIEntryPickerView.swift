@@ -1,5 +1,5 @@
 //
-//  UINumberPickerView.swift
+//  UIEntryPickerView.swift
 //  UINumberPicker
 //
 //  Created by Erick Sanchez on 5/14/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class UINumberPickerView: UIView {
+public class UIEntryPickerView: UIView {
     
     public struct Entry {
         
@@ -49,10 +49,18 @@ public class UINumberPickerView: UIView {
         sv.showsHorizontalScrollIndicator = false
         sv.isPagingEnabled = true
         
-        sv.layer.borderColor = UIColor.red.cgColor
-        sv.layer.borderWidth = 1.0
-        
         return sv
+    }()
+    
+    private lazy var scrollViewSelectedLayer: CAShapeLayer = {
+        let selectedLayer = CAShapeLayer()
+        selectedLayer.frame = self.scrollView.frame
+        selectedLayer.cornerRadius = self.scrollView.bounds.width / 2.0
+        selectedLayer.borderColor = UIColor.blue.cgColor
+        selectedLayer.borderWidth = 1.0
+        self.layer.addSublayer(selectedLayer)
+        
+        return selectedLayer
     }()
     
     public private(set) var entries: [Entry]
@@ -106,7 +114,7 @@ public class UINumberPickerView: UIView {
         let horzStackView = UIStackView()
         horzStackView.axis = .horizontal
         horzStackView.alignment = .fill
-        horzStackView.distribution = .fillEqually
+        horzStackView.distribution = .fill
         horzStackView.translatesAutoresizingMaskIntoConstraints = false
         
         //create uilabels with entry type
@@ -122,21 +130,10 @@ public class UINumberPickerView: UIView {
             
             let label = UILabel()
             label.textAlignment = .center
-            label.translatesAutoresizingMaskIntoConstraints = false
             label.setContentCompressionResistancePriority(.required, for: .horizontal)
             label.widthAnchor.constraint(equalToConstant: self.focusSize.width).isActive = true
             label.text = anEntry.text
             label.adjustsFontSizeToFitWidth = true
-//            label.margin
-            
-            //entry type using a calayer
-//            let entryTypeShape = CAShapeLayer()
-//            entryTypeShape.frame = CGRect(x: 0, y: label.bounds.height - 4.0, width: label.bounds.width, height: 4.0)
-//            entryTypeShape.fillColor = entryColorValue.cgColor
-//            label.layer.addSublayer(entryTypeShape)
-            
-            label.layer.borderColor = UIColor.blue.cgColor
-            label.layer.borderWidth = 1.0
             
             horzStackView.addArrangedSubview(label)
         }
@@ -156,6 +153,8 @@ public class UINumberPickerView: UIView {
         scrollView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         scrollView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
         scrollView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        
+        scrollView.decelerationRate = 0.2
     }
     
     /**
@@ -174,6 +173,12 @@ public class UINumberPickerView: UIView {
         } else {
             return view
         }
+    }
+    
+    public override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        scrollViewSelectedLayer.frame = scrollView.frame
     }
     
     // MARK: - IBACTIONS

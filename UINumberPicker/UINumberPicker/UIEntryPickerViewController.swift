@@ -1,5 +1,5 @@
 //
-//  UINumberPickerViewController.swift
+//  UIEntryPickerViewController.swift
 //  UINumberPicker
 //
 //  Created by Erick Sanchez on 5/14/18.
@@ -7,14 +7,21 @@
 //
 
 import UIKit
+import UIDesignables
 
-public class UINumberPickerViewController: UIViewController {
+@objc public protocol UIEntryPickerViewControllerDelegate: class {
+    @objc optional func entryPicker(_ entryPickerViewController: UIEntryPickerViewController, didFinishWith selectedIndex: Int)
+}
+
+public class UIEntryPickerViewController: UIViewController {
+    
+    public weak var delegate: UIEntryPickerViewControllerDelegate?
     
     public var headerText: String
     
     public var messageText: String
     
-    public var entries: [UINumberPickerView.Entry]
+    public var entries: [UIEntryPickerView.Entry]
     
     public var dismissButtonTitle: String = "Done"
     
@@ -32,22 +39,32 @@ public class UINumberPickerViewController: UIViewController {
     private lazy var containerView: UIView = {
         let container = UIView()
         
-        container.layer.cornerRadius = 8.0
-        container.backgroundColor = UIColor.lightGray
+        container.layer.cornerRadius = 12.0
+        container.backgroundColor = UIColor.white
         container.translatesAutoresizingMaskIntoConstraints = false
         
         return container
     }()
     
-    public init(headerText: String, messageText: String = "", values: [UINumberPickerView.Entry]) {
+    private lazy var pickerView: UIEntryPickerView = {
+        let picker = UIEntryPickerView(focusSize: CGSize(width: 72, height: 72), entries: self.entries)
+        picker.scrollView.delegate = self
+        
+        return picker
+    }()
+    
+    public init(headerText: String, messageText: String = "", values: [UIEntryPickerView.Entry]) {
         self.headerText = headerText
         self.messageText = messageText
         self.entries = values
         
         super.init(nibName: nil, bundle: nil)
+        
+        self.modalPresentationStyle = .overFullScreen
+        self.modalTransitionStyle = .crossDissolve
     }
     
-    public convenience init(headerText: String, messageText: String = "", values: UINumberPickerView.Entry...) {
+    public convenience init(headerText: String, messageText: String = "", values: UIEntryPickerView.Entry...) {
         self.init(headerText: headerText, messageText: messageText, values: values)
     }
     
@@ -57,6 +74,9 @@ public class UINumberPickerViewController: UIViewController {
         entries = []
         
         super.init(coder: aDecoder)
+        
+        self.modalPresentationStyle = .overFullScreen
+        self.modalTransitionStyle = .crossDissolve
     }
     
     // MARK: - RETURN VALUES
@@ -66,28 +86,31 @@ public class UINumberPickerViewController: UIViewController {
     public override func loadView() {
         super.loadView()
         
-        self.view = UIView(frame: UIScreen.main.bounds)
-        self.view.backgroundColor = .white
-        
         //Header label
         let headerLabel = UILabel()
         headerLabel.text = self.headerText
+        headerLabel.font = UIFont.boldSystemFont(ofSize: 24)
+        headerLabel.textAlignment = .center
         self.stackView.addArrangedSubview(headerLabel)
         
         //Description label
         let descriptionLabel = UILabel()
         descriptionLabel.numberOfLines = 0
         descriptionLabel.text = self.messageText
+        descriptionLabel.textAlignment = .center
         self.stackView.addArrangedSubview(descriptionLabel)
         
         //scroll view picker
-        let picker = UINumberPickerView(focusSize: CGSize(width: 72, height: 72), entries: self.entries)
-        picker.scrollView.delegate = self
-        self.stackView.addArrangedSubview(picker)
+        self.stackView.addArrangedSubview(pickerView)
         
         //ok button
         let okButton = UIButton(type: .system)
+        okButton.addTarget(self, action: #selector(pressDone(_:)), for: .touchUpInside)
         okButton.setTitle(self.dismissButtonTitle, for: .normal)
+        okButton.titleLabel!.font = UIFont.boldSystemFont(ofSize: 20)
+        UIDesignable
+            .wrapDesignable(to: okButton)
+            .margin(UIEdgeInsets(top: 16, left: 12, bottom: 16, right: 12))
         self.stackView.addArrangedSubview(okButton)
         
         //Layout
@@ -107,6 +130,15 @@ public class UINumberPickerViewController: UIViewController {
     
     // MARK: - IBACTIONS
     
+    @objc private func pressDone(_ button: UIButton) {
+        delegate?.entryPicker?(self, didFinishWith: self.pickerView.selectedPage)
+        self.presentingViewController?.dismiss(animated: true)
+    }
+    
+    public func show() {
+        //TODO: present above all of the views
+    }
+    
     // MARK: - LIFE CYCLE
     
     public override func viewDidLoad() {
@@ -119,7 +151,7 @@ public class UINumberPickerViewController: UIViewController {
 
 }
 
-extension UINumberPickerViewController: UIScrollViewDelegate {
+extension UIEntryPickerViewController: UIScrollViewDelegate {
     public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         
     }
