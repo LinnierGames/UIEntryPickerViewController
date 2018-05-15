@@ -10,11 +10,22 @@ import UIKit
 
 public class UICalendarDatePickerViewController: UIDatePickerViewController {
     
-    public var isTimeIncluded: Bool = false
+    public var isTimeIncluded: Bool = false {
+        didSet {
+            updateTimeButtonTitle()
+        }
+    }
     
     public var canAddDate: Bool = true
     
     public var canAddTime: Bool = false
+    
+    private lazy var addTimeButton: UIOptionButton = {
+        let button = UIOptionButton(type: .TitleButtonAndClearAction)
+        button.delegate = self
+        
+        return button
+    }()
     
     // MARK: - RETURN VALUES
     
@@ -26,25 +37,51 @@ public class UICalendarDatePickerViewController: UIDatePickerViewController {
         
         let content = super.layoutConent()
         
-        //add time button
-        let addTimeButton = UIButton(type: .system)
-        addTimeButton.setTitle("Add Time", for: .normal)
-        addTimeButton.addTarget(self, action: #selector(pressAddTime(_:)), for: .touchUpInside)
-        
         return content + [addTimeButton]
+    }
+    
+    private func updateTimeButtonTitle() {
+        if isTimeIncluded {
+            
+            //TODO: format text with DateFormatterTokens
+            addTimeButton.buttonTitle = String(describing: self.date)
+            addTimeButton.isShowingClearButton = true
+        } else {
+            addTimeButton.buttonTitle = "Add Time"
+            addTimeButton.isShowingClearButton = false
+        }
     }
     
     // MARK: - IBACTIONS
     
-    @objc private func pressAddTime(_ button: UIButton) {
+    // MARK: - LIFE CYCLE
+    
+    public override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        isTimeIncluded = !(!isTimeIncluded)
+    }
+}
+
+extension UICalendarDatePickerViewController: UIOptionButtonDelegate {
+    public func optionButton(_ optionButton: UIOptionButton, didPressTitle button: UIButton) {
         let timePickerVc = UIDatePickerViewController(headerText: nil, messageText: "select a time", date: self.date)
         timePickerVc.datePickerMode = .time
         timePickerVc.delegate = self
+        
+        //if adding a new time, set only the time of `self.date` to `Date()`
+        if isTimeIncluded == false {
+            isTimeIncluded = true
+            let timeDate = self.date.equating(to: Date(), by: [.hour, .minute])
+            timePickerVc.date = timeDate
+        }
+        
         self.present(timePickerVc, animated: true)
     }
     
-    // MARK: - LIFE CYCLE
-    
+    public func optionButton(_ optionButton: UIOptionButton, didPressClear button: UIButton) {
+        isTimeIncluded = false
+    }
 }
 
 extension UICalendarDatePickerViewController: UIDatePickerViewControllerDelegate {
@@ -52,10 +89,15 @@ extension UICalendarDatePickerViewController: UIDatePickerViewControllerDelegate
         
         //update self.date with only the time from UIDatePickerVc
         self.date = selectedDate
+        updateTimeButtonTitle()
     }
 }
 
-// MARK: - UIDatePickerViewControllerDelegate
+//////////////////////////////////////////////////////////
+//
+// MARK: - UIDatePickerViewController
+//
+//////////////////////////////////////////////////////////
 
 @objc public protocol UIDatePickerViewControllerDelegate: class {
     @objc optional func datePicker(_ datePicker: UIDatePickerViewController, didFinishWith selectedDate: Date)
@@ -73,12 +115,14 @@ public class UIDatePickerViewController: UIPickerViewController {
         }
     }
     
-    public private(set) lazy var datePickerView: UIDatePicker = {
+    public fileprivate(set) lazy var datePickerView: UIDatePicker = {
         let pickerView = UIDatePicker()
-        pickerView.translatesAutoresizingMaskIntoConstraints = false
         pickerView.datePickerMode = self.datePickerMode
         pickerView.date = self.date
         pickerView.addTarget(self, action: #selector(changedDatePickerValue(_:)), for: .valueChanged)
+        
+        pickerView.translatesAutoresizingMaskIntoConstraints = false
+        pickerView.heightAnchor.constraint(equalTo: pickerView.widthAnchor, multiplier: 0.33).isActive = true
         
         return pickerView
     }()

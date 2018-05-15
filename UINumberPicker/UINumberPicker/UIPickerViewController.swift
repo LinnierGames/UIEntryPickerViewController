@@ -115,13 +115,13 @@ open class UIPickerViewController: UIViewController {
         
         self.view.addSubview(self.containerView)
         self.containerView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
-        self.stackView.topAnchor.constraint(equalTo: self.containerView.topAnchor, constant: 12.0).isActive = true
+        self.stackView.topAnchor.constraint(equalTo: self.containerView.topAnchor, constant: 24.0).isActive = true
         self.containerView.bottomAnchor.constraint(equalTo: self.stackView.bottomAnchor, constant: 12.0).isActive = true
         self.containerView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16.0).isActive = true
         self.view.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: 16.0).isActive = true
         
         self.view.layoutIfNeeded()
-        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.35)
+        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.55)
     }
     
     // MARK: - IBACTIONS
