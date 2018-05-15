@@ -30,7 +30,9 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var button: UIButton!
     @IBAction func pressButton(_ sender: Any) {
-        self.present(UIDateAndTimePickerViewController(headerText: "Deadline", messageText: "When is this task due", date: Date(timeIntervalSince1970: 1))
+        let vcDate = UIDateAndTimePickerViewController(headerText: "Deadline", messageText: "When is this task due", date: Date(timeIntervalSince1970: 1))
+        vcDate.delegate = self
+        self.present(vcDate
             , animated: true)
         return
         
@@ -46,6 +48,12 @@ class ViewController: UIViewController {
 extension ViewController: UIEntryPickerViewControllerDelegate {
     func entryPicker(_ entryPickerViewController: UIEntryPickerViewController, didFinishWith selectedIndex: Int) {
         button.setTitle(entries[selectedIndex].text, for: .normal)
+    }
+}
+
+extension ViewController: UIDateAndTimePickerViewControllerDelegate {
+    func dateAndTimePicker(_ dateAndTimePicker: UIDateAndTimePickerViewController, didFinishWith selectedDate: Date, and isTimeIncluded: Bool) {
+        button.setTitle(String(describing: selectedDate), for: .normal)
     }
 }
 

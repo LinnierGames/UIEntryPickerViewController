@@ -68,6 +68,11 @@ open class UIPickerViewController: UIViewController {
      */
     open func layoutConent() -> [UIView] { return [] }
     
+    /**
+     Override this func to add functionality just before the view controller dismisses
+     */
+    open func pressDone(button: UIButton) { }
+    
     open override func loadView() {
         super.loadView()
         
@@ -116,7 +121,7 @@ open class UIPickerViewController: UIViewController {
     // MARK: - IBACTIONS
     
     @objc private func pressDone(_ button: UIButton) {
-        //        delegate?.entryPicker?(self, didFinishWith: self.pickerView.selectedPage)
+        self.pressDone(button: button)
         self.presentingViewController?.dismiss(animated: true)
     }
     
