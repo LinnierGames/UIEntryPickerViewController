@@ -43,11 +43,10 @@ public class UICalendarDatePickerViewController: UIDatePickerViewController {
     private func updateTimeButtonTitle() {
         if isTimeIncluded {
             
-            //TODO: format text with DateFormatterTokens
-            addTimeButton.buttonTitle = String(describing: self.date)
+            addTimeButton.buttonTitle = self.date.formattedStringWith(.Time_noPadding_am_pm)
             addTimeButton.isShowingClearButton = true
         } else {
-            addTimeButton.buttonTitle = "Add Time"
+            addTimeButton.buttonTitle = "Add a Time"
             addTimeButton.isShowingClearButton = false
         }
     }
@@ -71,12 +70,13 @@ extension UICalendarDatePickerViewController: UIOptionButtonDelegate {
         
         //if adding a new time, set only the time of `self.date` to `Date()`
         if isTimeIncluded == false {
-            isTimeIncluded = true
             let timeDate = self.date.equating(to: Date(), by: [.hour, .minute])
             timePickerVc.date = timeDate
         }
         
-        self.present(timePickerVc, animated: true)
+        self.present(timePickerVc, animated: true) { [unowned self] in
+            self.isTimeIncluded = true
+        }
     }
     
     public func optionButton(_ optionButton: UIOptionButton, didPressClear button: UIButton) {
